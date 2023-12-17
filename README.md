@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Калитвянский Александр SYS-27`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,25 +24,31 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
+`Процесс выполнения установки Zabbix Server с веб-интерфейсом`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+1.  `sudo apt update`
+2.  `sudo apt install postgresql`
+3.  `wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-5+debian12_all.deb`
+4.  `sudo dpkg -i zabbix-release_6.0-5+debian12_all.deb`
+5.  `sudo apt update`
+6.  `sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts`
+7.  `sudo -u postgres createuser --pwprompt zabbix`
+8.  `sudo -u postgres createdb -O zabbix zabbix`
+9.  `zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix`
+10. `vim /etc/zabbix/zabbix_server.conf`
+11. `DBPassword=zabbix`
+12. `sudo systemctl restart zabbix-server apache2`
+13. `sudo systemctl enable zabbix-server apache2`
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![скриншот 1](https://github.com/akalitvyanskiy/zabbix1/img/1_welcome/png)
+![скриншот 2](https://github.com/akalitvyanskiy/zabbix1/img/2_step.png)
+![скриншот 3](https://github.com/akalitvyanskiy/zabbix1/img/3_step.png)
+![скриншот 4](https://github.com/akalitvyanskiy/zabbix1/img/4_step.png)
+![скриншот 5](https://github.com/akalitvyanskiy/zabbix1/img/5_step.png)
+![скриншот 6](https://github.com/akalitvyanskiy/zabbix1/img/6_step.png)
+![скриншот 7](https://github.com/akalitvyanskiy/zabbix1/img/7_step.png)
+![скриншот 8](https://github.com/akalitvyanskiy/zabbix1/img/8_step.png)
+![скриншот 9](https://github.com/akalitvyanskiy/zabbix1/img/9_step_zabix_window.png)
 
 
 ---

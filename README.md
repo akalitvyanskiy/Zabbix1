@@ -58,11 +58,11 @@
 Установка Zabbix Agent на хосты.
 
 1. Устаннавливаем Zabbix Agent на 2 вирт. машины, одна из которых Zabbix Server:
-   wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-5+debian12_all.deb
-   sudo dpkg -i zabbix-release_6.0-5+debian12_all.deb
-   sudo apt update
-   sudo apt install zabbix-agent
-2. Добавляем Zabbix Server в список разрешенных серверов Zabbix Agent:
+   wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-5+debian12_all.deb  
+   sudo dpkg -i zabbix-release_6.0-5+debian12_all.deb  
+   sudo apt update  
+   sudo apt install zabbix-agent  
+2. Добавляем Zabbix Server в список разрешенных серверов Zabbix Agent:  
    sed -i 's/Server=127.0.0.1/Server=192.168.122.88'/g' /etc/zabbix/zabbix_server.conf
 ![скриншот 1](https://github.com/akalitvyanskiy/zabbix1/blob/main/img/log_vm1.png)
 ![скриншот 2](https://github.com/akalitvyanskiy/zabbix1/blob/main/img/log_zabbix_server.png) 
